@@ -1,11 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator-Sederhana</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&family=Quicksand&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 100%;
+        border: none;
+        outline: none;
+      }
+      .kalkulator {
+        width: 480px;
+        height: 300px;
+        border: 1.8px solid darkslategray;
+        margin: auto;
+        padding: 20px;
+        border-radius: 20px;
+      }
+      .title {
+        text-align: center;
+        justify-content: center;
+        font-size: 25px;
+        margin-top: 100px;
+        margin-bottom: 30px;
+      }
+
+      /* menghide arrow type number bawaan html */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        display: none;
+      }
+      .bil1,
+      .bil2 {
+        width: 220px;
+        padding: 2px;
+        height: 35px;
+        border-radius: 8px;
+        border: 2px solid gray;
+        font-size: 18px;
+      }
+      .bil2 {
+        margin-left: 21.6px;
+      }
+      .bil2,
+      .label2 {
+        margin-top: 10px;
+      }
+      .label1,
+      .label2,
+      .label3 {
+        font-size: 20px;
+      }
+      .pil {
+        width: 170px;
+        height: 40px;
+        margin-left: 91px;
+        margin-top: 15px;
+        border: 2px solid gray;
+        font-size: 16px;
+        border-radius: 8px;
+      }
+      .btn {
+        width: 90px;
+        height: 40px;
+        font-size: 18px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        background-color: darkslategray;
+        color: white;
+        outline: none;
+        border: 2px solid white;
+        text-align: center;
+        cursor: pointer;
+        font-weight: 500;
+        padding: 5px;
+      }
+      .btn:hover {
+        opacity: 0.8;
+        transition: 0.2s ease;
+      }
+      .hasil {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 class="title">Membuat Kalkulator dengan Javascript</h2>
+
+    <form id="kalkulator-form" class="kalkulator">
+      <label for="bilangan1" class="label1">Bilangan Pertama:</label>
+      <input type="number" id="bilangan1" required class="bil1" />
+      <br />
+
+      <label for="bilangan2" class="label2">Bilangan Kedua:</label>
+      <input type="number" id="bilangan2" required class="bil2" />
+      <br />
+
+      <label for="operator" class="label3">Operator:</label>
+      <select id="operator" required class="pil">
+        <option value="+">Penjumlahan (+)</option>
+        <option value="-">Pengurangan (-)</option>
+        <option value="*">Perkalian (*)</option>
+        <option value="/">Pembagian (/)</option>
+      </select>
+      <br />
+
+      <input type="submit" value="Hitung" class="btn" />
+      <input type="reset" value="Reset" class="btn" onclick="resethasil()" />
+
+      <p class="hasil">Hasil: <span id="hasil"></span></p>
+    </form>
+
+    <script>
+      document
+        .getElementById("kalkulator-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // Note: Bagian ini masih memakai bantuan AI, jadi masih belum terlalu mengerti
+
+          const bilangan1 = parseFloat(
+            document.getElementById("bilangan1").value
+          );
+          const bilangan2 = parseFloat(
+            document.getElementById("bilangan2").value
+          );
+          const operator = document.getElementById("operator").value;
+
+          //mengunakan switch case agar bisa melakukan perhitungan terhadap 2 bilangan tsb, biar simpel aja
+          let hasil = 0;
+          switch (operator) {
+            case "+":
+              hasil = bilangan1 + bilangan2;
+              break;
+            case "-":
+              hasil = bilangan1 - bilangan2;
+              break;
+            case "*":
+              hasil = bilangan1 * bilangan2;
+              break;
+            case "/":
+              hasil = bilangan1 / bilangan2;
+              break;
+            default:
+              alert("Operator tidak valid");
+          }
+
+          // Menampilkan hasil dengan id "hasil"
+          document.getElementById("hasil").textContent = hasil;
+        });
+
+      //mereset hasil
+      function resethasil() {
+        document.getElementById("hasil").innerHTML = "";
+      }
+    </script>
+  </body>
 </html>
