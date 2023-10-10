@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript IF statement</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: cursive;
+      }
+      h2 {
+        text-align: center;
+        margin-top: 100px;
+        margin-bottom: -80px;
+      }
+      .container {
+        width: 300px;
+        height: 150px;
+        margin: auto;
+        margin-top: 100px;
+        padding: 10px;
+      }
+      .ap {
+        width: 250px;
+        height: 40px;
+        border: 1.5px solid gray;
+        margin-bottom: 10px;
+        font-size: 18px;
+        margin-top: 5px;
+      }
+      .lbl {
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Pengecekan Nilai with Javascript</h2>
+
+    <div class="container">
+      <label class="lbl">Mengecek Nilai:</label>
+      <input
+        type="text"
+        name="nilai"
+        id="nilai"
+        placeholder="Masukan nilai 1-100"
+        onkeyup="Ceknilai()"
+        class="ap"
+      /><br />
+
+      <label class="lbl">Grade:</label><br />
+      <div style="margin-left: 60px; margin-top: -20px" id="hasilnilai"></div>
+    </div>
+
+    <script>
+      function Ceknilai() {
+        let nilai = document.getElementById("nilai").value;
+        document.getElementById("hasilnilai").innerHTML = nilai;
+
+        if (nilai >= 91 && nilai <= 100) {
+          nilai = "A";
+          document.getElementById("hasilnilai").innerHTML = nilai;
+        } else if (nilai >= 81 && nilai <= 90) {
+          nilai = "B";
+          document.getElementById("hasilnilai").innerHTML = nilai;
+        } else if (nilai >= 71 && nilai <= 80) {
+          nilai = "C";
+          document.getElementById("hasilnilai").innerHTML = nilai;
+        } else if (nilai >= 51 && nilai <= 70) {
+          nilai = "D";
+          document.getElementById("hasilnilai").innerHTML = nilai;
+        } else if (nilai <= 50 && nilai >= 1) {
+          nilai = "E";
+          document.getElementById("hasilnilai").innerHTML = nilai;
+        } else if (nilai <= 0) {
+          nilai = "";
+          document.getElementById("hasilnilai").innerHTML = nilai;
+        } else {
+          nilai = "nilai tidak valid";
+          document.getElementById("hasilnilai").innerHTML = nilai;
+        }
+      }
+    </script>
+  </body>
+</html>

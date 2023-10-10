@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input dan Ulang Data</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: cursive;
+        }
+        h2{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 80px;
+            margin-bottom: -80px;
+        }
+        .isi{
+            width: 300px;
+            height: auto;
+            margin: auto;
+            margin-top: 100px;
+            padding: 10px;
+            padding-bottom: 100px;
+        }
+        .inp, .inp1{
+            width: 250px;
+            height: 35px;
+            border: 1.5px solid gray;
+        }
+        .inp{
+            margin-bottom: 10px;
+        }
+        .inp1{
+            margin-bottom: 20px;
+        }
+        .btn{
+            width: 90px;
+            height: 40px;
+            font-size: 15px;
+            background-color: darkslategray;
+            color: white;
+            cursor: pointer;
+            border: 1px solid gray;
+            margin-bottom: 10px;
+        }
+        .btn:hover{
+            opacity: .9;
+        }
+    </style>
+  </head>
+  <body>
+
+    <h2>Loop Input data User with JS</h2>
+    <div class="isi">
+
+        <div>
+            <label for="dataInput">Masukkan Data:</label>
+            <input type="text" id="dataInput" class="inp" />
+        </div>
+        <div>
+            <label for="ulang">Jumlah Pengulangan:</label>
+            <input type="number" id="ulang" class="inp1"/>
+        </div>
+        <button onclick="ulangData()" class="btn">Ulang Data</button>
+        <input type="reset" value="Reset" onclick="reset()" class="btn"><br>
+
+        <label class="an">Hasil:</label>
+        <div id="hasil" class="hasil"><p></p></div>
+    </div>
+        
+    <script>
+      function ulangData() {
+        var data = document.getElementById("dataInput").value;
+
+        var ulangCount = parseInt(document.getElementById("ulang").value);
+
+        if (ulangCount <= 0) {
+          alert("Jumlah pengulangan harus lebih dari 0.");
+          return;
+        }
+
+        var hasil = "";
+        for (var i = 0; i < ulangCount; i++) {
+          hasil += data + "<br>";
+        }
+
+        document.getElementById("hasil").innerHTML = hasil;
+      }
+
+      function reset(){
+        document.getElementById("hasil").innerHTML = "";
+      }
+    </script>
+  </body>
+</html>
