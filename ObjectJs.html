@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h3, p{
+            text-align: center;
+            margin-top: 100px;
+        }
+        p{
+            font-size: 20px;
+            margin-top: 30px;
+            text-transform: uppercase;
+        }
+    </style>
+  </head>
+  <body>
+    <h3>Contoh Tipe data Object didalam Array</h3>
+    <p>lihat hasil nya di inspek</p>
+
+    <script>
+      let datasiswa = [
+        {
+          Nama: "Hanif",
+          id: 22,
+          Umur: 16,
+          Kelas: "XI RPL 1",
+        },
+        {
+          Nama: "Budi",
+          id: 10,
+          Umur: 16,
+          Kelas: "XI RPL 1",
+        },
+        {
+          Nama: "Ahmad",
+          id: 13,
+          Umur: 17,
+          Kelas: "XI RPL 2",
+        }
+      ];
+
+      console.log(datasiswa[0].Nama); //Hanif
+      console.log(datasiswa[1].id); //10
+      console.log(datasiswa[2].Umur); //17
+      console.log(datasiswa[1].Kelas); //XI RPl 1
+    </script>
+  </body>
+</html>

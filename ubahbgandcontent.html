@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>
+        Mengubah bg Teks dan Content dengan DOM
+    </h2>
+    <div class="bg">
+        <p id="content">Tulisan sebelum di ubah</p>
+        <input type="button" id="ubah" value="Rubah" onclick="Ubahbg()">
+        <input type="button" id="ubah" value="Reset" onclick="reset()">
+    </div>
+    <script>
+        function Ubahbg(){
+
+            let element = document.getElementById("content");
+            element.innerHTML = "Sudah di ubah";
+            element.style.backgroundColor = "red";
+            element.style.color = "white";
+        }
+        function reset(){
+            let kosong = document.getElementById("content");
+            kosong.innerHTML = "Tulisan sebelum di ubah";
+            kosong.style.backgroundColor = "white";
+            kosong.style.color = "black"
+        }
+            
+    </script>
+</body>
+</html>

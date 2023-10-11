@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+      h1{
+        text-align: center;
+        font-size: 30px;
+        margin-top: 100px;
+        margin-bottom: -50px;
+      }
+      .isi{
+        margin: auto;
+        width: 500px;
+        height: 300px;
+        padding: 10px;
+        margin-top: 80px;
+      }
+      .lb{
+        font-size: 18px;
+      }
+      .input{
+        width: 200px;
+        height: 45px;
+        margin: auto;
+        font-size: 15px;
+        padding: 5px;
+        border: 1.5px solid gray;
+      }
+      .btn{
+        width: 80px;
+        height: 40px;
+        margin-left: 10px;
+        font-size: 16px;
+        background-color: darkslategray;
+        color: white;
+        border: 2px solid darkslategray;
+        cursor: pointer;
+        margin-bottom: 20px;
+      }
+      .btn:hover{
+        opacity: .8;
+        transition: .2s ease;
+      }
+      .lb1{
+        margin-top: 20px;
+        font-size: 18px;
+      }
+      .hasil{
+        font-size: 18px;
+      }
+     
+    </style>
+  </head>
+  <body>
+    
+    <h1>Mengubah nilai suhu Celcius ke Fahrenheit</h1>
+
+    <div class="isi">
+      <label class="lb">Suhu Celcius:</label>
+      <input
+        type="text"
+        id="inputsuhu"
+        placeholder="Masukkan suhu celcius"
+        class="input"
+        required
+      />
+      <input
+        type="button"
+        class="btn"
+        value="Change"
+        onclick="UbahSuhu()"
+      /><br />
+
+      <label class="lb1">Fahrenheit:</label>
+       <div class="hasil" id="hasilakhir"></div>
+    </div>
+
+    <script>
+      function UbahSuhu() {
+        let suhu = parseFloat(document.getElementById("inputsuhu").value);
+        let proses = (9 / 5) * suhu + 32;
+
+        if(isNaN(suhu)|| ""){
+          alert("Input harus berupa angka/tidak boleh kosong")
+          return;
+        }
+
+        document.getElementById("hasilakhir").innerHTML = proses;
+      }
+    </script>
+  </body>
+</html>
