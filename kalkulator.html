@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* background: linear-gradient(90deg, #7fc3e0, #9b10f3, rgb(229, 246, 48)); */
+            background-color: white;
+            outline: none;
+            font-family: 'poopins', sans-serif;
+            box-sizing: border-box;
+            border: none;
+        }
+
+        .kalkulator {
+            width: 270px;
+            box-sizing: border-box;
+            padding: 10px;
+            /* border: 2px solid gainsboro; */
+            height: auto;
+            background-color: white;
+            margin: auto;
+            margin-top: 10%;
+            border-radius: 12px;
+        }
+
+        /* .title {
+            text-align: center;
+            font-size: 30px;
+            color: black;
+        } */
+
+        .hasil {
+            margin: auto;
+            margin-bottom: 20px;
+            width: auto;
+            height: 50px;
+            background-color: white;
+            border: 1.5px solid gainsboro;
+            font-size: 20px;
+            color: black;
+            border-radius: 12px;
+        }
+
+        .baris-1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            gap: 0.5rem;
+            margin-bottom: 5px;
+        }
+
+        .angka {
+            width: 55px;
+            height: 55px;
+            background-color: gainsboro;
+            color: black;
+            border: 1.5px solid gainsboro;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .angka:active{
+            opacity: .8;
+        }
+        .hasil:hover{
+            border: 1.5px solid gainsboro;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="kalkulator">
+        <!-- <h1 class="title">My Kalkulator</h1> -->
+        <input type="text" id="tampil" readonly class="hasil"><br>
+
+        <div class="baris-1">
+            <button onclick="tampilHasil('1')" class="angka">1</button>
+            <button onclick="tampilHasil('2')" class="angka">2</button>
+            <button onclick="tampilHasil('3')" class="angka">3</button>
+            <button onclick="tampilHasil('+')" class="angka">+</button>
+        </div>
+        <div class="baris-1">
+            <button onclick="tampilHasil('4')" class="angka">4</button>
+            <button onclick="tampilHasil('5')" class="angka">5</button>
+            <button onclick="tampilHasil('6')" class="angka">6</button>
+            <button onclick="tampilHasil('-')" class="angka">-</button>
+        </div>
+        <div class="baris-1">
+            <button onclick="tampilHasil('7')" class="angka">7</button>
+            <button onclick="tampilHasil('8')" class="angka">8</button>
+            <button onclick="tampilHasil('9')" class="angka">9</button>
+            <button onclick="tampilHasil('*')" class="angka">*</button>
+        </div>
+        <div class="baris-1">
+            <button onclick="clearTampilan()" class="angka">C</button>
+            <button onclick="kalkulasi()" class="angka">=</button>
+            <button onclick="tampilHasil('0')" class="angka">0</button>
+            <button onclick="tampilHasil('/')" class="angka">/</button>
+        </div>
+
+    </div>
+
+    <script>
+        function tampilHasil(hasil) {
+  document.getElementById("tampil").value += hasil;
+}
+
+function clearTampilan() {
+  document.getElementById("tampil").value = "";
+}
+
+function kalkulasi() {
+  const hasil = eval(document.getElementById("tampil").value);
+
+  try {
+    document.getElementById("tampil").value = hasil;
+  } catch {
+    document.getElementById("tampil").value = "terjadi error";
+  }
+}
+
+    </script>
+</body>
+
+</html>
